@@ -1,0 +1,48 @@
+{
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "path": "."
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 2,
+    "translateTabsToSpaces": true,
+    "caret_style": "phase",
+    "highlight_line": true,
+    "line_padding_bottom": 1,
+    "line_padding_top": 1
+  },
+  "build_systems":
+  [
+    {
+      "name": "Lint",
+      "cmd": "./lint.sh",
+      "shell": true,
+      "working_dir": "${project_path:${folder}}",
+      "file_regex": "^(..[^:\n]*):([0-9]+):?([0-9]+)?:? (.*)$"
+    },
+    {
+      "name": "Build",
+      "selector": "source.cpp",
+      "working_dir": "${project_path:${folder}}",
+      "cmd": "./compile.sh",
+      "shell": true,
+      "file_regex": "^(..[^:\n]*):([0-9]+):?([0-9]+)?:? (.*)$",
+      "variants": [
+        {
+          "name": "Run",
+          "cmd": "./run.sh"
+        },
+        {
+          "name": "Test",
+          "cmd": "./test.sh",
+          "shell": true,
+          "file_regex": "^(..[^:\n]*):([0-9]+):?([0-9]+)?:? (.*)$"
+        }
+      ]
+    }
+  ]
+}
