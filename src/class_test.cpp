@@ -3,9 +3,18 @@
 #include "class.hpp"
 
 namespace {
-  TEST(Foo, toString) {
-    Foo foo("foo");
+  class FooTest : public ::testing::Test {
+   protected:
+    FooTest() : foo("foo") {}
 
+    virtual void SetUp() {
+
+    }
+
+    Foo foo;
+  };
+
+  TEST_F(FooTest, toString) {
     ASSERT_EQ("foo", foo.toString());
   }
 }
