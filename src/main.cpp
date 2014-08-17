@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "class.hpp"
+#include "inverted_index.hpp"
 
 using namespace std;
 
 int main(int argc, const char* argv[]) {
-  Foo food("Hello, World!\n");
+  InvertedIndex index({});
 
-  cout << food.toString();
+  cout << "foo" << endl;
   return 0;
 }
