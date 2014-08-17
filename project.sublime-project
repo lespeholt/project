@@ -18,13 +18,6 @@
   "build_systems":
   [
     {
-      "name": "Lint",
-      "cmd": "./lint.sh",
-      "shell": true,
-      "working_dir": "${project_path:${folder}}",
-      "file_regex": "^(..[^:\n]*):([0-9]+):?([0-9]+)?:? (.*)$"
-    },
-    {
       "name": "Build",
       "selector": "source.cpp",
       "working_dir": "${project_path:${folder}}",
@@ -39,8 +32,10 @@
         {
           "name": "Test",
           "cmd": "./test.sh",
-          "shell": true,
-          "file_regex": "^(..[^:\n]*):([0-9]+):?([0-9]+)?:? (.*)$"
+        },
+        {
+          "name": "Lint",
+          "cmd": "./lint.sh"
         }
       ]
     }
